@@ -1,0 +1,35 @@
+.logo {
+  width: 200px;
+}
+th {
+  color: #dc143c;
+  font-weight: bold;
+  border: 2px solid black;
+  width: 100px !important;
+}
+.logo-2 {
+  width: 400px;
+  height: 200px;
+  border-radius: 10px;
+  opacity: 0.3;
+}
+td i {
+  color: #dc143c;
+}
+td {
+  font-weight: bold;
+  text-align: center;
+  width: 50px !important;
+}
+table {
+  width: 800px !important;
+  margin: auto !important;
+  background-image: url("https://media-exp1.licdn.com/dms/image/C4E0BAQE2qPkxHCqfhQ/company-logo_200_200/0?e=2159024400&v=beta&t=TRjbu8tAv0qbGnhLGFQ6PnUrhD9h_PyCglm72w2xD-o");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.logos {
+  width: 60px;
+  border-radius: 30%;
+}
