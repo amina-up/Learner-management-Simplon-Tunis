@@ -32,7 +32,12 @@ class ApprenantsNav extends Component {
     return (
       <>
         <Navbar light expand="md">
-          <NavbarBrand></NavbarBrand>
+          <NavbarBrand>
+            <img
+              src="https://www.keejob.com/media/recruiter/recruiter_17182/logo-17182-20191008-095050.png"
+              className="logo"
+            ></img>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

@@ -27,9 +27,9 @@ class ProjectsNav extends Component {
   render() {
     return (
       <>
-        <Navbar color="light" light expand="md">
+        <Navbar light expand="md">
           <NavbarBrand style={{ fontWeight: "bold" }}>
-            {this.props.name}
+            <img src="https://www.keejob.com/media/recruiter/recruiter_17182/logo-17182-20191008-095050.png"></img>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

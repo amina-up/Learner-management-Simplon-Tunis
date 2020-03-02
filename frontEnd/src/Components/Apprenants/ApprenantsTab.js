@@ -10,22 +10,23 @@ export class ApprenantsTab extends Component {
     return (
       <>
         <Table hover className="text-center ">
-          <thead style={{ backgroundColor: "#CACFD2 ", textAlign: "center" }}>
+          <thead style={{ textAlign: "center" }}>
             <tr>
+              <th>Groupe</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Last </th>
               <th>Comments</th>
             </tr>
           </thead>
           <tbody>
             {this.props.apprenants.map(apprenant => (
               <tr key={apprenant._id}>
+                <td style={{ color: "red" }}>{apprenant.groupe}</td>
                 <td style={{ textAlign: "left" }}>
                   {apprenant.name.toUpperCase()}
                 </td>
                 <td>{apprenant.email}</td>
-                <td></td>
+
                 <td>
                   <Link to={`/comments/${apprenant._id}`} className="mr-2">
                     <i class="fas fa-comments"></i>
