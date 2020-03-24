@@ -19,10 +19,10 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty())
       return res.status(400).json({ errors: errors.array() });
-    const { apprenant_id, option, text } = req.body;
+    const { comment_id, option, text } = req.body;
     try {
       comment = new Comment({
-        apprenant: apprenant_id,
+        comment: comment_id,
         option,
         text
       });
@@ -39,7 +39,7 @@ router.get("/:apprenant_id", async (req, res) => {
   try {
     const comments = await Comment.find({ apprenant: req.params.apprenant_id });
 
-    await Apprenant.find({ name: req.query.name });
+    await Apprenant.find({ name: req.query.name }).populate("apprenant.name");
 
     res.json(comments);
   } catch (error) {}

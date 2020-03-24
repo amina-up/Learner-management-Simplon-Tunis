@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_COMMENTS, ADD_COMMENT, DELETE_COMMENT } from "./actionTypes";
+import {
+  GET_COMMENTS,
+  ADD_COMMENT,
+  DELETE_COMMENT,
+  UPDATE_COMMENT
+} from "./actionTypes";
 
 export const getComments = (apprenant_id, apprenant) => async dispatch => {
   try {
@@ -20,6 +25,20 @@ export const addComment = (apprenant_id, option, text) => async dispatch => {
     const res = await axios.post("/comments", { apprenant_id, option, text });
     dispatch({
       type: ADD_COMMENT,
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const updateCommet = (option, text) => async dispatch => {
+  try {
+    const res = await axios.put("/comments/", {
+      option,
+      text
+    });
+    dispatch({
+      type: UPDATE_COMMENT,
       payload: res.data
     });
   } catch (error) {

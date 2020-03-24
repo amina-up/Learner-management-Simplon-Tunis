@@ -37,9 +37,9 @@ class ApprenantsModal extends Component {
         <ModalHeader>
           <img
             src="https://jamaity.org/wp-content/uploads/2019/01/48413546_1894746707320979_6553648587891277824_n.png"
-            className="logo"
+            width="90px"
           ></img>
-          ADD Apprenant
+          Add Sim plonien
         </ModalHeader>
         <ModalBody>
           <InputGroup className="m-2">
@@ -75,16 +75,16 @@ class ApprenantsModal extends Component {
         </ModalBody>
         <ModalFooter>
           <Button
-            color="primary"
+            color="success"
             onClick={() => {
               this.handleClick();
               this.props.toggle();
             }}
           >
-            Add
+            <i class="fas fa-check-circle"></i>
           </Button>
-          <Button color="secondary" onClick={() => this.props.toggle()}>
-            Cancel
+          <Button color="warning" onClick={() => this.props.toggle()}>
+            <i class="fas fa-times-circle"></i>
           </Button>
         </ModalFooter>
       </Modal>

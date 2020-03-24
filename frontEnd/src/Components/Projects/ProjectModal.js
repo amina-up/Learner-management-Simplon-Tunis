@@ -10,25 +10,30 @@ import {
   Label
 } from "reactstrap";
 import { connect } from "react-redux";
-import { addComment } from "../../Actions/comments";
+import { addComment, updateCommet } from "../../Actions/comments";
 
 class ProjectModal extends Component {
   state = {
-    option: "",
-    text: ""
+    option: this.props.isEdit ? this.props.comment.option : "",
+    text: this.props.isEdit ? this.props.comment.text : ""
   };
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
+
   handleClick = () => {
-    this.props.addComment(
-      this.props.apprenant_id,
-      this.state.option,
-      this.state.text
-    );
+    this.props.isEdit
+      ? this.props.updateCommet(this.state.option, this.state.text)
+      : this.props.addComment(
+          this.props.apprenant_id,
+          this.state.option,
+          this.state.text
+        );
   };
+
   render() {
     return (
       <Modal
@@ -36,17 +41,21 @@ class ProjectModal extends Component {
         isOpen={this.props.isOpen}
         toggle={() => this.props.toggle()}
       >
-        <ModalHeader>Add Comment</ModalHeader>
+        <ModalHeader>
+          {this.props.isEdit ? "UPDATE COMMENT" : "ADD COMMENT"}
+        </ModalHeader>
         <ModalBody>
           <FormGroup>
-            <Label>Select Option</Label>
+            <Label style={{ fontWeight: "bold" }}>
+              Evalu<span style={{ color: "#dc143c" }}>ation</span>
+            </Label>
             <Input
               type="select"
               name="option"
               value={this.state.option}
               onChange={this.changeHandler}
             >
-              <option>choose one</option>
+              <option>Choose </option>
               <option>Nothing</option>
               <option> À Encourager</option>
               <option> À Convoquer</option>
@@ -54,7 +63,9 @@ class ProjectModal extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="exampleText">Comments</Label>
+            <Label style={{ fontWeight: "bold" }}>
+              Comm<span style={{ color: "#dc143c" }}>ents</span>
+            </Label>
             <Input
               type="textarea"
               name="text"
@@ -82,4 +93,4 @@ class ProjectModal extends Component {
   }
 }
 
-export default connect(null, { addComment })(ProjectModal);
+export default connect(null, { addComment, updateCommet })(ProjectModal);

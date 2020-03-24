@@ -14,7 +14,9 @@ export class ApprenantsTab extends Component {
             <tr>
               <th>Groupe</th>
               <th>Name</th>
-              <th>Email</th>
+              <th>
+                <i class="fab fa-etsy"></i>mail
+              </th>
               <th>Comments</th>
             </tr>
           </thead>

@@ -22,23 +22,28 @@ class ProjectsNav extends Component {
       [event.target.name]: event.target.value
     });
   };
-  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
   toggleModal = () => this.setState({ modal: !this.state.modal });
   render() {
     return (
       <>
-        <Navbar light expand="md">
+        <Navbar light expand="md" style={{ paddingBottom: "50px" }}>
           <NavbarBrand style={{ fontWeight: "bold" }}>
-            <img src="https://www.keejob.com/media/recruiter/recruiter_17182/logo-17182-20191008-095050.png"></img>
+            <h1 style={{ textAlign: "center" }}>
+              {" "}
+              <span style={{ color: "#dc143c" }}>Comments</span> Of Coach{" "}
+            </h1>
           </NavbarBrand>
+
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <Button
-                className="m-2"
+                style={{ width: "50px" }}
+                className="m-2 btn-comment"
                 onClick={() => this.setState({ modal: true })}
               >
-                Add a Comment
+                <i class="fas fa-comment-dots"></i>
               </Button>
             </Nav>
           </Collapse>
@@ -47,6 +52,7 @@ class ProjectsNav extends Component {
           <ProjectModal
             toggle={this.toggleModal}
             isOpen={this.state.modal}
+            isEdit={false}
             apprenant_id={this.props.apprenant_id}
           />
         ) : null}
