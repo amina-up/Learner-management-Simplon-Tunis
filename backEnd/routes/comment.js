@@ -39,7 +39,7 @@ router.get("/:apprenant_id", async (req, res) => {
   try {
     const comments = await Comment.find({ apprenant: req.params.apprenant_id });
 
-    await Apprenant.find({ name: req.query.name }).populate("apprenant.name");
+    await Apprenant.find({ name: req.query.name });
 
     res.json(comments);
   } catch (error) {}
